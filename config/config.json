@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "program_hunt",
+    "password": "password",
+    "database": "program_hunt_data",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "program_hunt",
+    "password": "password",
+    "database": "program_hunt_data",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "program_hunt",
+    "password": "password",
+    "database": "program_hunt_data",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
