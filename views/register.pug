@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content
+  div(class="register-container")
+    div(class="errors-container")
+    br
+    h2 Sign Up
+    br
+    form(action="/register" method="post" class="register-form")
+      .form-group
+      div
+        label(for='username') Username
+        input(type='text' name='username' placeholder="pythonMan58")
+      div
+        label(for='email') Email
+        input(type='email' name='email' placeholder="pythonMan@gmail.com")
+      div
+        label(for='password') Password
+        input(type='password' name='password' placeholder="don't pick password")
+        input(type='password' name='confirm-password' placeholder="confirm")
+
+      //- include includes/auth-form-fields
+      button(type='submit') Sign Up
+  script(type="module" src="js/register.js")   
