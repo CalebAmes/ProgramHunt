@@ -1,12 +1,12 @@
-const cookieParser = require('cookie-parser');
 const express = require('express');
 const router = express.Router();
+const cookieParser = require('cookie-parser');
 const { users } = require('../db/models');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator')
+const asyncHandler = require('./utils')
 
 
-const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
 
 const registrationValidator = [
   check('username')

@@ -9,3 +9,9 @@ append head
 block content
   h1= title
   p Welcome to your Project Skeleton
+
+  body
+    form(method="get" action="/register")
+      button(type="submit") Register
+    form(method="get" action="/login")
+      button(type="submit") Login
