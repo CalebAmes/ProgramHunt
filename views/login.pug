@@ -3,25 +3,21 @@ extends layout.pug
 include utils.pug
 
 block content
-  div(class="register-container")
+  div(class="login-container")
     div(class="errors-container")
       +validationErrorsSummary(errors)
     br
-    h2 Sign Up
+    h2 Log In
     br
     br
-    form(action="/register" method="post" class="register-form")
+    form(action="/login" method="post" class="login")
       .form-group
-      div
-        label(for='username') Username
-        input(type='text' name='username' placeholder="pythonMan58")
       div
         label(for='email') Email
         input(type='email' name='email' placeholder="pythonMan@gmail.com")
       div
         label(for='password') Password
         input(type='password' name='password' placeholder="don't pick password")
-        input(type='password' name='confirmPassword' placeholder="confirm")
 
       //- include includes/auth-form-fields
-      button(type='submit') Sign Up
+      button(type='submit') Sign In
