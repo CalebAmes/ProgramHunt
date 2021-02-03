@@ -13,6 +13,7 @@ block content
     form(action="/login" method="post" class="login")
       .form-group
       div
+        input(type='hidden' name='_csrf' value=csrfToken)
         label(for='email') Email
         input(type='email' name='email' placeholder="pythonMan@gmail.com")
       div
