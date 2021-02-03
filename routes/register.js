@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const { User } = require('../db/models');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator')
-const {asyncHandler, userLogin} = require('./utils')
+const {asyncHandler, userLogin, csrfProtection} = require('./utils')
 
 
 const registrationValidator = [
@@ -57,11 +57,16 @@ const registrationValidator = [
 
 ]
 
-router.get('/', function(req, res, next) {
-  res.render('register')
-});
+router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
+  const user = await User.build();
+  res.render('register', {
+    title: 'Registration',
+    user,
+    csrfToken: req.csrfToken(),
+  })
+}));
 
-router.post('/', registrationValidator, asyncHandler(async(req, res, next) => {
+router.post('/', csrfProtection, registrationValidator, asyncHandler(async(req, res, next) => {
   const { username, email, password } = req.body;
 
   const validatorErrors = validationResult(req)
@@ -81,7 +86,7 @@ router.post('/', registrationValidator, asyncHandler(async(req, res, next) => {
       title: 'Registration',
       user,
       errors,
-      //CSRFTOKEN?
+      csrfToken: req.csrfToken(),
     });
   };
 

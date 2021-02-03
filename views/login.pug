@@ -8,7 +8,9 @@ block content
       h2 Log In
     form.registration(action="/login" method="post" class="login")
       div
+        input(type='hidden' name='_csrf' value=csrfToken)
         input.formtext(type='email' name='email' placeholder="Email")
+
       div
         input.formtext(type='password' name='password' placeholder="Password")
       button.signup(type='submit') Sign In

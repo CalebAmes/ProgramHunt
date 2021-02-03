@@ -2,14 +2,14 @@ const { Router } = require('express');
 const express = require('express');
 const { check, validationResult } = require('express-validator');
 const router = express.Router();
-const {asyncHandler, userLogin, userLogout} = require('./utils')
+const {asyncHandler, userLogin, userLogout, csrfProtection} = require('./utils')
 const bcrypt = require('bcryptjs');
 const { User } = require('../db/models');
 
-router.get('/', (req, res) => {
+router.get('/', csrfProtection, (req, res) => {
     res.render('login.pug', {
         title: 'Login',
-        //CSRFTOKEN?
+        csrfToken: req.csrfToken(),
     })
 })
 
@@ -27,7 +27,7 @@ const loginValidator = [
 ]
 
 
-router.post('/', loginValidator, asyncHandler(async(req, res, next) => {
+router.post('/', loginValidator, csrfProtection, asyncHandler(async(req, res, next) => {
     const { email, password } = req.body;
 
     let errors = []
@@ -56,7 +56,7 @@ router.post('/', loginValidator, asyncHandler(async(req, res, next) => {
         title: 'Login',
         email,
         errors,
-        //- CSRF TOKEN?
+        csrfToken: req.csrfToken(),
     })
 
 }))

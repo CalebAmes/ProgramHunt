@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     profilePictureId: DataTypes.INTEGER
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Program, { foreignKey: 'userId' });
   };
   return User;
 };
