@@ -57,13 +57,14 @@ const registrationValidator = [
 
 ]
 
-router.get('/', csrfProtection, (req, res, next) => {
+router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
+  const user = await User.build();
   res.render('register', {
     title: 'Registration',
     user,
     csrfToken: req.csrfToken(),
   })
-});
+}));
 
 router.post('/', csrfProtection, registrationValidator, asyncHandler(async(req, res, next) => {
   const { username, email, password } = req.body;
