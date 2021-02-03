@@ -8,23 +8,15 @@ block content
   div.registration(class="register-container")
     div
       h2 Sign Up
-    br
-    br
     form.registration(action="/register" method="post" class="register-form")
       div
-        //- label(for='username') Username
         input.formtext(type='text' name='username' placeholder="Username")
       div
-        //- label(for='email') Email
         input.formtext(type='email' name='email' placeholder="Email Address")
       div
-        //- label(for='password') Password
         input.formtext(type='password' name='password' placeholder="Password")
       div
         input.formtext(type='password' name='confirmPassword' placeholder="Confirm Password")
-
-      //- include includes/auth-form-fields
       button.signup(type='submit') Sign Up
-    //-Button if they already have an account
   div.errors(class="errors-container")
     +validationErrorsSummary(errors)

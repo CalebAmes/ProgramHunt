@@ -3,16 +3,12 @@
     color: #C9C9C9;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    /* font-size:10px; */
 }
 
 .nav-bar{
     background: #16161d;
     border-bottom: 1px solid#6f6f6f;
 }
-/* form {
-    background-color: palevioletred;
-} */
 
 footer {
     background-color: orange;
@@ -39,6 +35,7 @@ footer {
 .nav-bar > li {
     display: inline-block;
     padding: 0px 15px 0px 15px;
+    
 }
 
 .logo{

@@ -6,19 +6,11 @@ block content
   div.registration(class="login-container")
     div
       h2 Log In
-    br
-    br
     form.registration(action="/login" method="post" class="login")
       div
-        //- label(for='email') Email
         input.formtext(type='email' name='email' placeholder="Email")
       div
-        //- label(for='password') Password
         input.formtext(type='password' name='password' placeholder="Password")
-
-      //- include includes/auth-form-fields
       button.signup(type='submit') Sign In
   div.errors(class="errors-container")
     +validationErrorsSummary(errors)
-
-//- Button to go to register if they dont have an account
