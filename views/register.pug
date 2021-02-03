@@ -13,6 +13,7 @@ block content
     form(action="/register" method="post" class="register-form")
       .form-group
       div
+        input(type='hidden' name='_csrf' value=csrfToken)
         label(for='username') Username
         input(type='text' name='username' placeholder="pythonMan58")
       div

@@ -1,5 +1,9 @@
 const {User} = require('../db/models')
 
+const csrf = require('csurf')
+
+const csrfProtection = csrf({ cookie: true })
+
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
 
 
@@ -36,4 +40,4 @@ const authUser = async(req, res, next) => {
     };
 };
 
-module.exports = {asyncHandler, userLogin, userLogout, authUser};
+module.exports = {asyncHandler, userLogin, userLogout, authUser, csrfProtection};
