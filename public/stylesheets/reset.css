@@ -25,3 +25,16 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.nav-bar a {
+  color: black;
+}
+
+.nav-bar a:hover {
+  background-color: lightblue;
+}
+
+.nav-bar li {
+  display: inline-block;
+  padding: 10px;
+}
