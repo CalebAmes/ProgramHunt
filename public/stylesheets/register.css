@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #cc4d29;
+    font-family: "Sofia", cursive;
+    font-size: 15px;
+    font-weight: bold;
+    font-size: 3.6em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #c9c9c9;
+    text-decoration: none;
+}
+
+.registration {
+    margin-top: 140px;
+    margin: auto;
+    width: 350px;
+
+    top: 10%;
+    left: 50%;
+}
+
+::placeholder{
+    color: #efefef;
+    font-family: 'Raleway', sans-serif;
+}
+
+.formtext{
+    color: #efefef;
+    width: 350px;
+    padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #efefef;
+    outline: none;
+    font-size: 17px;
+}
+
+.signup {
+    background: #cc4d29;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    border: 0;
+    width: 350px;
+    height: 40px;
+    border-radius: 3px;
+    color: #c9c9c9;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.signup:hover {
+    background: #00b37e;
+    color: #000000;
+}

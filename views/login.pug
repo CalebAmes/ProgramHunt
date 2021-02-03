@@ -3,24 +3,16 @@ extends layout.pug
 include utils.pug
 
 block content
-  div(class="login-container")
-    div(class="errors-container")
-      +validationErrorsSummary(errors)
-    br
-    h2 Log In
-    br
-    br
-    form(action="/login" method="post" class="login")
-      .form-group
+  div.registration(class="login-container")
+    div
+      h2 Log In
+    form.registration(action="/login" method="post" class="login")
       div
         input(type='hidden' name='_csrf' value=csrfToken)
-        label(for='email') Email
-        input(type='email' name='email' placeholder="pythonMan@gmail.com")
+        input.formtext(type='email' name='email' placeholder="Email")
+
       div
-        label(for='password') Password
-        input(type='password' name='password' placeholder="don't pick password")
-
-      //- include includes/auth-form-fields
-      button(type='submit') Sign In
-
-//- Button to go to register if they dont have an account
+        input.formtext(type='password' name='password' placeholder="Password")
+      button.signup(type='submit') Sign In
+  div.errors(class="errors-container")
+    +validationErrorsSummary(errors)
