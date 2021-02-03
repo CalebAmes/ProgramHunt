@@ -4,6 +4,7 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="stylesheet" href="/stylesheets/register.css")
   body
       ul(class="nav-bar")
         li
@@ -15,6 +16,7 @@ html
         form(class='logout' action='/login/logout' method='post')
           button(class='logout' type='submit') Logout
       else
+        ul.nav-bar
         li
           a(href="/register") Register
         li

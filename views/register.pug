@@ -2,15 +2,18 @@ extends layout.pug
 
 include utils.pug
 
+
+
 block content
-  div(class="register-container")
+
+  div.registration(class="register-container")
     div(class="errors-container")
       +validationErrorsSummary(errors)
     br
     h2 Sign Up
     br
     br
-    form(action="/register" method="post" class="register-form")
+    form.registration(action="/register" method="post" class="register-form")
       .form-group
       div
         label(for='username') Username
