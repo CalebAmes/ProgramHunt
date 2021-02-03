@@ -2,15 +2,14 @@
     background-color: #16161d;
     color: #C9C9C9;
     box-sizing: border-box;
-    font: 18x “Segoe UI”, Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    /* font-size:10px; */
 }
 
-body {
-    padding: 50px;
-    color: #C9C9C9;
+.nav-bar{
+    background: #16161d;
+    border-bottom: 1px solid#6f6f6f;
 }
-
-
 /* form {
     background-color: palevioletred;
 } */
@@ -19,48 +18,57 @@ footer {
     background-color: orange;
 }
 
-a {
-    color: #00B7FF;
+.nav-bar{
+    display: flex;
+    padding:5px 300px 5px 200px;
+    justify-content:flex-start;
+    align-items: center;
+    font-size: 20px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-ol,
-li,
-ul,
-div,
-span,
-body,
-header,
-nav {
-    font-size: 1rem;
-    color: inherit;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 2rem;
+.nav-bar a:hover{
+    color:#cc4d29;
+    position: sticky;
 }
 
 .nav-bar a {
-    color: black;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #6f6f6f;
 }
 
-.nav-bar a:hover {
-    background-color: lightblue;
-    color: #C9C9C9;
-}
-
-.nav-bar li {
+.nav-bar > li {
     display: inline-block;
-    padding: 10px;
+    padding: 0px 15px 0px 15px;
+}
+
+.logo{
+    border-radius: 50%;
+}
+
+#logoutButton{
+    background: #16161d;
+    color: #6f6f6f;
+    border: none;
+    font-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+#logoutButton:hover{
+    color:#cc4d29;
+}
+
+.errors > ul{
+    list-style: square;
+}
+
+.errors {
+    margin: 30px;
+    display: flex;
+    justify-content: flex-end;
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+    
 }

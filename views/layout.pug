@@ -2,25 +2,36 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="Program Hunt"
+      
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel="stylesheet" href="/stylesheets/register.css")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap")
   body
-      ul(class="nav-bar")
-        li
-          a(href="/") Home
-        li
-          a(href="/") Profile
       if locals.authenticated
-        span Welcome #{user.username}!
         form(class='logout' action='/login/logout' method='post')
-          button(class='logout' type='submit') Logout
+          ul.nav-bar
+            li
+              img.logo(src="productHuntLogo.png" href="/") 
+            li
+              a(href="/") Welcome #{user.username}!
+            li
+              a(href="/") Home
+            li
+              a(href="/") Profile
+            li
+              button#logoutButton(class='logout' type='submit') Logout
       else
         ul.nav-bar
-        li
-          a(href="/register") Register
-        li
-          a(href="/login") Login
+          li
+              img.logo(src="productHuntLogo.png" href="/") 
+          li
+            a(href="/") Home
+          li
+            a(href="/register") Register
+          li
+            a(href="/login") Login
 
 
 

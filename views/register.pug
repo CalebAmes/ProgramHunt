@@ -3,29 +3,28 @@ extends layout.pug
 include utils.pug
 
 
-
 block content
 
   div.registration(class="register-container")
-    div(class="errors-container")
-      +validationErrorsSummary(errors)
-    br
-    h2 Sign Up
+    div
+      h2 Sign Up
     br
     br
     form.registration(action="/register" method="post" class="register-form")
-      .form-group
       div
-        label(for='username') Username
-        input(type='text' name='username' placeholder="pythonMan58")
+        //- label(for='username') Username
+        input.formtext(type='text' name='username' placeholder="Username")
       div
-        label(for='email') Email
-        input(type='email' name='email' placeholder="pythonMan@gmail.com")
+        //- label(for='email') Email
+        input.formtext(type='email' name='email' placeholder="Email Address")
       div
-        label(for='password') Password
-        input(type='password' name='password' placeholder="don't pick password")
-        input(type='password' name='confirmPassword' placeholder="confirm")
+        //- label(for='password') Password
+        input.formtext(type='password' name='password' placeholder="Password")
+      div
+        input.formtext(type='password' name='confirmPassword' placeholder="Confirm Password")
 
       //- include includes/auth-form-fields
-      button(type='submit') Sign Up
+      button.signup(type='submit') Sign Up
     //-Button if they already have an account
+  div.errors(class="errors-container")
+    +validationErrorsSummary(errors)
