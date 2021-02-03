@@ -5,4 +5,21 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    block content
+      ul(class="nav-bar")
+        li
+          a(href="/") Home
+        li
+          a(href="/") Profile
+      if locals.authenticated
+        span Welcome #{user.username}!
+        form(class='logout' action='/login/logout' method='post')
+          button(class='logout' type='submit') Logout
+      else
+        li
+          a(href="/register") Register
+        li
+          a(href="/login") Login
+
+
+
+  block content

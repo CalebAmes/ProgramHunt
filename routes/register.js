@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const cookieParser = require('cookie-parser');
-const { users } = require('../db/models');
+const { User } = require('../db/models');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator')
-const asyncHandler = require('./utils')
-
+const {asyncHandler, userLogin} = require('./utils')
 
 
 const registrationValidator = [
@@ -15,7 +14,7 @@ const registrationValidator = [
     .isLength({ max: 25 })
     .withMessage('Username limit is 25 characters.')
     .custom((value) => {
-      return users.findOne({ where: { username: value } })
+      return User.findOne({ where: { username: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided Username is already in use by another account.');
@@ -30,7 +29,7 @@ const registrationValidator = [
     .isEmail()
     .withMessage('Email Address is not a valid Email.')
     .custom((value) => {
-      return users.findOne({ where: { email: value } })
+      return User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided Email Address is already in use by another account.');
@@ -59,24 +58,28 @@ const registrationValidator = [
 ]
 
 router.get('/', function(req, res, next) {
-  res.render('register.pug')
+  res.render('register')
 });
 
 router.post('/', registrationValidator, asyncHandler(async(req, res, next) => {
   const { username, email, password } = req.body;
 
   const validatorErrors = validationResult(req)
+  const user = await User.build({ username, email});
 
   if(validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 8);
-    await users.create({ username, email, hashedPassword })
-    //TODO: Log-in the User
-    res.redirect('/')
+    user.hashedPassword = hashedPassword;
+    await user.save();
+    userLogin(req, res, user);
+    return req.session.save(() => {
+      res.redirect('/');
+  })
   } else {
-    const errors = validatorErrors.array().map((error) => error.msg)
-    res.render('register.pug', {
+    const errors = validatorErrors.array().map((error) => error.msg);
+    res.render('register', {
       title: 'Registration',
-      // user,
+      user,
       errors,
       //CSRFTOKEN?
     });
