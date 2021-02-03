@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h2= program.name
+    div
+        if program.video
+            iframe(width="560" height="315" src=`${program.video}` frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        else
+            img(width="560" height="315" src=`${program.image}`)
+    p= program.description
