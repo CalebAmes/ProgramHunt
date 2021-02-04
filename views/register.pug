@@ -5,12 +5,10 @@ include utils.pug
 
 block content
 
-  div.registration(class="register-container")
-    div
-      h2 Sign Up
-    form.registration(action="/register" method="post" class="register-form")
+  h2 Sign Up
+  div.registration
+    form.registration(action="/register" method="post")
       div
-
         input.formtext(type='text' name='username' placeholder="Username")
 
         input(type='hidden' name='_csrf' value=csrfToken)
@@ -22,5 +20,5 @@ block content
       div
         input.formtext(type='password' name='confirmPassword' placeholder="Confirm Password")
       button.signup(type='submit') Sign Up
-  div.errors(class="errors-container")
+  div.errors
     +validationErrorsSummary(errors)

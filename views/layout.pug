@@ -15,7 +15,8 @@ html
         form(class='logout' action='/login/logout' method='post')
           ul.nav-bar
             li
-              img.logo(src="productHuntLogo.png" href="/") 
+              a(href="/")
+                img.logo(src="./programHuntLogo.png") 
             li
               a(href="/") Welcome #{user.username}!
             li
@@ -23,11 +24,13 @@ html
             li
               a(href="/") Profile
             li
+              a(href="/program") Post
+            li
               button#logoutButton(class='logout' type='submit') Logout
       else
         ul.nav-bar
           li
-              img.logo(src="productHuntLogo.png" href="/") 
+              img.logo(src="programHuntLogo.png") 
           li
             a(href="/") Home
           li

@@ -4,7 +4,7 @@ const { User, Program } = require('../db/models');
 const {asyncHandler, csrfProtection} = require('./utils')
 const { check, validationResult } = require('express-validator')
 
-postValidators = [
+const postValidators = [
     check('name')
         .exists({ checkFalsy: true})
         .withMessage('Please give the program a name.')
@@ -24,14 +24,14 @@ postValidators = [
 
 ]
 
-router.get('/post', csrfProtection, (req, res) => {
-    if (req.session.auth) {
-        const program = Program.build();
-        res.render('program-post', {
-            title: 'Post a Program',
-            program,
-            csrfToken: req.csrfToken(),
-        })
+router.get('/', csrfProtection, asyncHandler(async(req, res) => {
+    if(req.session.auth){
+    const program = Program.build();
+     res.render('program-post', {
+        title: 'Post a Program',
+        program,
+        csrfToken: req.csrfToken(),
+    })
     } else {
         const errors = [
             'Please log in to create a post.'
@@ -42,13 +42,13 @@ router.get('/post', csrfProtection, (req, res) => {
             csrfToken: req.csrfToken(),
         });
     }
-});
+}));
 
-router.post('/post', csrfProtection, postValidators, asyncHandler(async(req, res) => {
+router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId
     const {name, description, video, image} = req.body
 
-    const post = Program.build({
+    const post = await Program.build({
         name,
         description,
         userId,
