@@ -8,6 +8,9 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
-
+  each program in programs
+    table.programTable    
+      tr.programTable
+        td.programTable= program.name
+        td.programTable= program.description
   body
