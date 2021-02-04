@@ -3,22 +3,20 @@ extends layout.pug
 include utils.pug
 
 block content
-    br
-    +validationErrorsSummary(errors)
-    br
-    form(action='/program/post' method='post' class="new-post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        label(type='text' name='name') Program Name:
-        br
-        input(type='text' name='name')
-        br
-        label(type='text' name='description') Description:
-        br
-        textarea(type='text' name='description')
-        br
-        label(type='text' name='content') Content Links:
-        br
-        input(type='text' name='video' placeholder='Video Url')
-        input(type='text' name='image' placeholder='Image Url')
-        br
-        button(type='submit') Post
+
+    h2 Post a Program
+    div.registration
+        form.registration(action='/program' method='post')
+            div
+                input(type='hidden' name='_csrf' value=csrfToken)
+                input.formtext(type='text' placeholder="Program Name" name='name')
+            div 
+                textarea.formtext(type='text'  placeholder="Description" name='description')
+            div
+                input.formtext(type='text' name='video' placeholder='Video Url')
+            div
+                input.formtext(type='text' name='image' placeholder='Image Url')
+            div    
+                button.signup(type='submit') Post
+    div.errors
+        +validationErrorsSummary(errors)

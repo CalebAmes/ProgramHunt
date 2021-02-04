@@ -17,6 +17,13 @@ a {
     text-decoration: none;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .registration {
     margin-top: 140px;
     margin: auto;

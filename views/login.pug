@@ -3,9 +3,8 @@ extends layout.pug
 include utils.pug
 
 block content
+  h2 Log In
   div.registration(class="login-container")
-    div
-      h2 Log In
     form.registration(action="/login" method="post" class="login")
       div
         input(type='hidden' name='_csrf' value=csrfToken)
