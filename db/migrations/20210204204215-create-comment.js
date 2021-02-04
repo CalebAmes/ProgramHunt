@@ -1,30 +1,25 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Programs', {
+    return queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      description: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Users'}
       },
-      video: {
-        type: Sequelize.STRING
+      programId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Programs'}
       },
-      image: {
+      comment: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -38,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Programs');
+    return queryInterface.dropTable('Comments');
   }
 };
