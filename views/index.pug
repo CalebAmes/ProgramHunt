@@ -8,15 +8,19 @@ append head
 
 block content
   h1= title
+  div.programContainer
   each program in programs
-    table.programTable    
-      tr.programTable
-        td.programTable= program.name
-        td.programTable= program.bio
-        td.programTable
-          a#like ⬆
-        td.programTable
-          a#comment //
-        td.programTable
-          a#programlink(href="program/" + program.id) ℹ
+    div.programDiv
+      img(id="programGif" src="https://ph-files.imgix.net/f5f7c49d-cba0-4b24-8c6d-743995e27998.gif?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop", alt="image")
+      div.one
+        span.programName= program.name
+      div.two
+        span.programBio= program.bio
+
+      button.likeButton(type="submit" class="like") Like
+
+        //- td.programTable
+        //-   a#comment //
   body
+        //- td.programTable
+        //-   a#programlink(href="program/" + program.id) ℹ
