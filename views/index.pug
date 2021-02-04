@@ -8,6 +8,15 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
-
+  each program in programs
+    table.programTable    
+      tr.programTable
+        td.programTable= program.name
+        td.programTable= program.bio
+        td.programTable
+          a#like ⬆
+        td.programTable
+          a#comment //
+        td.programTable
+          a#programlink(href="program/" + program.id) ℹ
   body

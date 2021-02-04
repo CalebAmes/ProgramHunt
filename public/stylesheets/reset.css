@@ -1,4 +1,5 @@
 * {
+    background-color: white;
     background-color: #16161d;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
@@ -7,10 +8,6 @@
 .nav-bar{
     background: #16161d;
     border-bottom: 1px solid#6f6f6f;
-}
-
-footer {
-    background-color: orange;
 }
 
 .nav-bar{
@@ -65,6 +62,15 @@ footer {
     justify-content: flex-end;
     color: red;
     font-weight: bold;
-    font-size: 10px;
-    
+    font-size: 10px
 }
+
+.programTable {
+    font-size:25px;
+    margin: 20px;
+    padding: 3px;
+    color:white;
+    border: 2px solid white;
+	border-collapse: collapse;
+}
+
