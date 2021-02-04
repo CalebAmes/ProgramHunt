@@ -10,10 +10,6 @@
     border-bottom: 1px solid#6f6f6f;
 }
 
-footer {
-    background-color: orange;
-}
-
 .nav-bar{
     display: flex;
     padding:5px 300px 5px 200px;
