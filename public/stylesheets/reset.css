@@ -11,11 +11,15 @@
 }
 
 .nav-bar{
+    background: #16161d;
+    border-bottom: 1px solid#6f6f6f;
     display: flex;
-    padding:5px 300px 5px 200px;
-    justify-content:flex-start;
+    padding:5px 10000px 5px 300px;
+    justify-content:space-around;
     align-items: center;
     font-size: 20px;
+    position: fixed;
+    z-index: 10;
 }
 
 .nav-bar a:hover{
