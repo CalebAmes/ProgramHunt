@@ -10,11 +10,14 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING
+      },
+      thumbnail: {
+        type: Sequelize.STRING
       },
       bio: {
         allowNull: false,
-        type: Sequelize.STRING(75)
+        type: Sequelize.STRING
       },
       description: {
         allowNull: false,
@@ -23,7 +26,7 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: 'Users'}
+        references: { model: 'Users' }
       },
       video: {
         type: Sequelize.STRING
@@ -32,7 +35,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       likes: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: 0
       },
       createdAt: {
