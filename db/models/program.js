@@ -7,12 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     userId: DataTypes.INTEGER,
     video: DataTypes.STRING,
-    image: DataTypes.STRING,
-    likes: DataTypes.STRING
+    image: DataTypes.STRING
   }, {});
   Program.associate = function(models) {
     Program.belongsTo(models.User, { foreignKey: 'userId' });
     Program.hasMany(models.Comment, { foreignKey: 'programId' });
+    Program.hasMany(models.Like, { foreignKey: 'programId' });
+
   };
   return Program;
 };
