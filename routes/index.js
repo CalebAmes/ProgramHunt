@@ -6,7 +6,10 @@ const { check, validationResult } = require('express-validator')
 
 /* GET home page. */
 router.get('/', asyncHandler(async(req, res) => {
-  const programs = await Program.findAll();
+  const programs = await Program.findAll({
+    order: [['createdAt', 'DESC']]
+  }
+  );
   res.render('index', { title: 'Program Hunt', programs});
 }));
 
