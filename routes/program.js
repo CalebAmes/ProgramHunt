@@ -87,7 +87,11 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 router.post('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
-    await program.destroy();
+    await Program.destroy({
+        where: {
+            id: programId
+        }
+    });
     res.redirect('/')
 }));
 

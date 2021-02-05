@@ -3,29 +3,26 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
+  //- //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
   body
+  div.bottom
   div.programContainer
     each program in programs
-      a#programlink(href="program/" + program.id)
-        div.programDiv
-          div.programFlex
-            div.image
-              img(id="programGif" src=program.thumbnail, alt="image")
-            div.programDescription
-              div.programName
-                span.programName= program.name
-              div.programBio
-                span.programBio= program.bio
-          div.buttonDiv
-            button.likeButton(type="submit" class="like") Like
-          div.commentIcon
-            img.comment(src='/commentsIcon.png')
+      div.hover
+        a#programlink(href="program/" + program.id)
+          div.programDiv.hover
+            div.programFlex
+              div.image
+                img.thumbnail(id="programGif" src=program.thumbnail, alt="image")
+              div.programDescription.hover
+                div.programName.hover
+                  span.programName= program.name
+                div.programBio
+                  span.programBio= program.bio
+            //- div.buttonDiv
+            //-   a.likeButton(type="submit" class="like") ⚡︎
 
-        //- td.programTable
-        //-   a#comment //
-        //- td.programTable
-        //-   a#programlink(href="program/" + program.id) ℹ
+  div.bottom
