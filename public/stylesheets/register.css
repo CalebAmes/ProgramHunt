@@ -4,7 +4,7 @@
 }
 
 h2 {
-    color: #cc4d29;
+    color: #03045e;
     font-family: "Sofia", cursive;
     font-style: italic;
     font-size: 3.6em;
@@ -13,7 +13,7 @@ h2 {
 }
 
 a {
-    color: #c9c9c9;
+    color: #03045e;
     text-decoration: none;
 }
 
@@ -34,17 +34,17 @@ form{
 }
 
 ::placeholder{
-    color: #efefef;
+    color: #03045e;
     font-family: 'Raleway', sans-serif;
 }
 
 .formtext{
-    color: #efefef;
+    color: #03045e;
     width: 350px;
     padding: 20px 0px;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid #03045e;
     outline: none;
     font-size: 17px;
 }
@@ -65,6 +65,6 @@ form{
 }
 
 .signup:hover {
-    background: #00b37e;
+    background: #0077b6;
     color: #000000;
 }
