@@ -12,11 +12,11 @@ html
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&display=swap")
   body
       if locals.authenticated
-        form(class='logout' action='/login/logout' method='post')
+        form(action='/login/logout' method='post')
           ul.nav-bar
             li
               a(href="/")
-                img.logo(src="./programHuntLogo.png") 
+                img.logo(src="../programHuntLogo.png") 
             li
               a(href="/") Welcome #{user.username}!
             li
@@ -26,12 +26,12 @@ html
             li
               a(href="/program") Post
             li
-              button#logoutButton(class='logout' type='submit') Logout
+              button#logoutButton(type='submit') Logout
       else
         ul.nav-bar
           li
             a(href="/")
-              img.logo(src="programHuntLogo.png") 
+              img.logo(src="../programHuntLogo.png") 
           li
             a(href="/") Home
           li
