@@ -25,6 +25,7 @@ const postValidators = [
 ]
 
 router.get('/', csrfProtection, asyncHandler(async(req, res) => {
+    console.log(req.session.auth)
     if(req.session.auth){
     const program = Program.build();
      res.render('program-post', {
@@ -74,13 +75,17 @@ router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) =>
 }));
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+    const signedInId = req.session.auth.userId;
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
-    res.render('program-main', { title: 'Program', program });
+    res.render('program-main', { title: 'Program', program, signedInId });
 }));
 
-
-
-
+router.post('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
+    const programId = parseInt(req.params.id, 10);
+    const program = await Program.findByPk(programId);
+    await program.destroy();
+    res.redirect('/')
+}));
 
 module.exports = router;
