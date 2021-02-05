@@ -1,17 +1,19 @@
 extends layout.pug
 
 include utils.pug
-
+append head
+  script(src='/javascripts/demo.js')
 block content
   h2 Log In
   div.registration(class="login-container")
-    form.registration(action="/login" method="post" class="login")
+    form.registration#loginform(action="/login" method="post" class="login")
       div
         input(type='hidden' name='_csrf' value=csrfToken)
-        input.formtext(type='email' name='email' placeholder="Email")
+        input.formtext#email(type='email' name='email' placeholder="Email")
 
       div
-        input.formtext(type='password' name='password' placeholder="Password")
-      button.signup(type='submit') Sign In
+        input.formtext#password(type='password' name='password' placeholder="Password")
+      button.signup#signin(type='submit') Sign In
+      button.signup#demo(type='button') Sign In as Demo User
   div.errors(class="errors-container")
     +validationErrorsSummary(errors)

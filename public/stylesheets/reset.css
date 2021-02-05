@@ -36,7 +36,7 @@
     display: inline-block;
     padding: 0px 15px 0px 15px;
     background: #00b4d8;
-    
+
 }
 
 .logo{
@@ -64,10 +64,10 @@
 .errors {
     margin: 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     color: red;
     font-weight: bold;
-    font-size: 10px
+    font-size: 20px
 }
 
 #space{
