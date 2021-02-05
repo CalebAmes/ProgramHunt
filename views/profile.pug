@@ -14,11 +14,12 @@ block content
   div.header
     img.photo(src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", alt="image")
     h2.username= user.username
-  br
-  h2#posts These are your posts...
-  br
-  br
-  div.userProgramContainer
+    br
+  if(userPrograms)
+    h2#posts These are your posts...
+    br
+    br
+    div.userProgramContainer
       each program in userPrograms
         div
           a#programlink(href="/program/" + program.id)
@@ -31,6 +32,8 @@ block content
                     span.programName= program.name
                   div.programBio
                     span.programBio= program.description
+  else
+    h2#posts You havn't posted anything yet...
 
 
 
