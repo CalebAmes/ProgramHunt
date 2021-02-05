@@ -4,11 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     hashedPassword: DataTypes.STRING,
-    profilePictureId: DataTypes.INTEGER
+    profilePicture: DataTypes.STRING
   }, {});
   User.associate = function(models) {
     User.hasMany(models.Program, { foreignKey: 'userId' });
     User.hasMany(models.Comment, { foreignKey: 'userId' });
+    User.hasMany(models.Like, { foreignKey: 'userId' });
+
   };
   return User;
 };
