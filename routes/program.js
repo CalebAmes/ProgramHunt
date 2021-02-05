@@ -47,10 +47,12 @@ router.get('/', csrfProtection, asyncHandler(async(req, res) => {
 
 router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId
-    const {name, description, video, image} = req.body
+    const {name, thumbnail, bio, description, video, image} = req.body
 
     const post = await Program.build({
         name,
+        thumbnail,
+        bio,
         description,
         userId,
         video,

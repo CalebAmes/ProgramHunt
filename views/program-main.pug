@@ -1,13 +1,37 @@
 extends layout
 
 block content
-    h2= program.name
-    div
-        if program.video
-            iframe(width="560" height="315" src=`${program.video}` frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
-        else
-            img(width="560" height="315" src=`${program.image}`)
-    p= program.description
-        if (program.userId === signedInId)
-            form.registration(action= program.id + '/delete' method='post')
-            button.signup(class='logout' type='submit') delete
+    div.header
+        div.thumbnailDiv
+            img.thumbnail(src=program.thumbnail)
+        div
+            div
+                h1.name= program.name
+            div
+                h4.bio= program.bio
+    div.contentContainer
+        div.content
+            if program.video
+                iframe(width="560" height="315" src=`${program.video}` frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+            else
+                img(width="560" height="315" src=`${program.image}`)
+        div.descDiv
+
+            p.description= program.description
+    div.commentHolder
+        div.commentBlock
+            if program.comments
+                each comment in comments
+                    div= program.comment
+            else
+                div.noComments
+
+
+
+
+
+    div.buttonholderHolder
+        div.buttonHolder
+            if (program.userId === signedInId)
+                form.registration(action= program.id + '/delete' method='post')
+                button.signup(class='logout' type='submit') delete
