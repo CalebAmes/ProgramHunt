@@ -1,3 +1,75 @@
+
+
 h1 {
     color: #555555;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.programContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.programFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    margin-top: 10px;
+}
+.programDiv {
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+    width: 750px;
+    height: 150px;
+    border: 1px solid black;
+    /* border-radius: 8px; */
+    padding: 12px;
+    /* margin: 4px; */
+}
+
+.programName {
+    color: #555555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    margin-left: 10px;
+    display: block;
+}
+
+.programBio {
+    color: #555555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    display: block;
+    margin-left: 10px;
+}
+
+.buttonDiv {
+    text-align: center;
+}
+
+.likeButton {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: flex;
+    height: 80px;
+    width: 80px;
+    color: #555555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+
+.comment {
+    height: 25px;
+    width: 25px;
 }

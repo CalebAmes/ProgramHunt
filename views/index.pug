@@ -7,16 +7,26 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  each program in programs
-    table.programTable    
-      tr.programTable
-        td.programTable= program.name
-        td.programTable= program.bio
-        td.programTable
-          button#like ⬆ #{program.likes}
-        td.programTable
-          a#comment //
-        td.programTable
-          a#programlink(href="program/" + program.id) ℹ
   body
+  h1= title
+  div.programContainer
+    each program in programs
+      a#programlink(href="program/" + program.id)
+        div.programDiv
+          div.programFlex
+            div.image
+              img(id="programGif" src="https://ph-files.imgix.net/f5f7c49d-cba0-4b24-8c6d-743995e27998.gif?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=100&h=100&fit=crop", alt="image")
+            div.programDescription
+              div.programName
+                span.programName= program.name
+              div.programBio
+                span.programBio= program.bio
+          div.buttonDiv
+            button.likeButton(type="submit" class="like") Like
+          div.commentIcon
+            img.comment(src='/commentsIcon.png')
+
+        //- td.programTable
+        //-   a#comment //
+        //- td.programTable
+        //-   a#programlink(href="program/" + program.id) ℹ
