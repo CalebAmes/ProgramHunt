@@ -7,11 +7,17 @@ const { route } = require('.');
 
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-    const userId = req.params.id
-    const user = await User.findByPk(userId, {})
+    const user_Id = req.params.id
+    const user = await User.findByPk(user_Id, {})
+    const userPrograms = await Program.findAll({
+        order: [['createdAt', 'DESC']],
+        where:{
+            userId: user_Id
+        }
+    })
     res.render('profile', {
-        username: user.username
-            // img: user.img
+        user,
+        userPrograms
     })
 
 }))

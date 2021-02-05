@@ -8,6 +8,8 @@ block content
         else
             img(width="560" height="315" src=`${program.image}`)
     p= program.description
+    p= program.userId
+    p= signedInId
         if (program.userId === signedInId)
             form.registration(action= program.id + '/delete' method='post')
-            button.signup(class='logout' type='submit') delete
+                button.signup(type='submit') delete

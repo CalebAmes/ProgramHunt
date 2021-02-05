@@ -2,26 +2,60 @@ extends layout.pug
 
 include utils.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
 block content
- <div class="container">
-      <div class="left col-lg-4">
-        <div class="photo-left">
-          <img class="photo" src="https://images.pexels.com/photos/1804796/pexels-photo-1804796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="active">
-        <h4 class="name">Jane Doe
-        <ul class="nav">
-          <li>Gallery
-        <span class="programs">programs
-        <div class="row gallery">
-          <div class="col-md-4">
-             <img src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/861034/pexels-photo-861034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="col-md-4">
-             <img src="https://images.pexels.com/photos/113338/pexels-photo-113338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="col-md-4">
-             <img src="https://images.pexels.com/photos/5049/forest-trees-fog-foggy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/428431/pexels-photo-428431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/50859/pexels-photo-50859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+  body
+  br
+  div.header
+    img.photo(src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", alt="image")
+    h2.username= user.username
+  br
+  h2#posts These are your posts...
+  br
+  br
+  div.userProgramContainer
+      each program in userPrograms
+        div
+          a#programlink(href="/program/" + program.id)
+            div.programDiv
+              div.programFlex
+                div.image
+                  img.thumbnail(id="programGif" src=program.thumbnail, alt="image")
+                div.programDescription
+                  div.programName
+                    span.programName= program.name
+                  div.programBio
+                    span.programBio= program.description
+
+
+
+
+
+
+//-  <div class="container">
+//-       <div class="left col-lg-4">
+//-         <div class="photo-left">
+//-           <img class="photo" src="https://images.pexels.com/photos/1804796/pexels-photo-1804796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="active">
+//-         <h4 class="name">Jane Doe
+//-         <ul class="nav">
+//-           <li>Gallery
+//-         <span class="programs">programs
+//-         <div class="row gallery">
+//-           <div class="col-md-4">
+//-              <img src="https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="col-md-4">
+//-             <img src="https://images.pexels.com/photos/861034/pexels-photo-861034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="col-md-4">
+//-              <img src="https://images.pexels.com/photos/113338/pexels-photo-113338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="col-md-4">
+//-              <img src="https://images.pexels.com/photos/5049/forest-trees-fog-foggy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="col-md-4">
+//-             <img src="https://images.pexels.com/photos/428431/pexels-photo-428431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+//-           <div class="col-md-4">
+//-             <img src="https://images.pexels.com/photos/50859/pexels-photo-50859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
