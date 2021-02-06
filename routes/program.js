@@ -21,7 +21,6 @@ const postValidators = [
     check('description')
         .exists({ checkFalsy: true})
         .withMessage('Please give the program a description.')
-
 ]
 
 router.get('/', csrfProtection, asyncHandler(async(req, res) => {
@@ -47,12 +46,10 @@ router.get('/', csrfProtection, asyncHandler(async(req, res) => {
 
 router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId
-    const {name, thumbnail, bio, description, video, image} = req.body
+    const {name, description, video, image} = req.body
 
     const post = await Program.build({
         name,
-        thumbnail,
-        bio,
         description,
         userId,
         video,
@@ -73,7 +70,6 @@ router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) =>
             csrfToken: req.csrfToken()
         })
     }
-
 }));
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
@@ -87,11 +83,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 router.post('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
-    await Program.destroy({
-        where: {
-            id: programId
-        }
-    });
+    await program.destroy();
     res.redirect('/')
 }));
 
