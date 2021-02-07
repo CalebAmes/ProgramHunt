@@ -33,5 +33,5 @@ block content
     div.buttonholderHolder
         div.buttonHolder
             if (program.userId === signedInId)
-                form.registration(action= program.id + '/delete' method='post')
-                button.signup(class='logout' type='submit') delete
+                form.registration#deleteform(action=program.id+'/delete' method='GET')
+                    button.signup#delete(class='logout') Delete
