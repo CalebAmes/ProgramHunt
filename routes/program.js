@@ -46,10 +46,12 @@ router.get('/', csrfProtection, asyncHandler(async(req, res) => {
 
 router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId
-    const {name, description, video, image} = req.body
+    const {name, bio, thumbnail, description, video, image} = req.body
 
     const post = await Program.build({
         name,
+        bio,
+        thumbnail,
         description,
         userId,
         video,
@@ -80,7 +82,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     res.render('program-main', { title: 'Program', program, signedInId });
 }));
 
-router.post('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
+router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
     await program.destroy();
