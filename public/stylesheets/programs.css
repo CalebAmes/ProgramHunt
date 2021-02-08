@@ -71,3 +71,17 @@
     margin-top: 15%;
     margin-bottom: 5%;
 }
+
+.thumbnail{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content:center;
+    /* margin-bottom: 50px; */
+    /* border: 3px solid white; */
+}
+
+/* .thumbnailDiv {
+    width: 100px;
+    height: 100px;
+} */
