@@ -53,8 +53,9 @@
 }
 
 .commentHolder {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
     margin-top: 20px;
 }
 
@@ -85,3 +86,7 @@
     width: 100px;
     height: 100px;
 } */
+
+.noComments{
+    margin-top: 20px;
+}

@@ -19,12 +19,15 @@ block content
 
             p.description= program.description
     div.commentHolder
+        form(action='/new_comment' method='POST')
+            input(type='text' name='comment' placeholder='Comment goes here...')
         div.commentBlock
             if program.comments
                 each comment in comments
                     div= program.comment
             else
                 div.noComments
+                    div No Comments Yet! Be the first!
 
 
 
