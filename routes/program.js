@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, Program } = require('../db/models');
+const { User, Program, Comment } = require('../db/models');
 const {asyncHandler, csrfProtection} = require('./utils')
 const { check, validationResult } = require('express-validator')
 
@@ -88,5 +88,27 @@ router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     await program.destroy();
     res.redirect('/')
 }));
+
+router.post('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
+    const userId = req.session.auth.userId
+    console.log(userId)
+    const programId = parseInt(req.params.id, 10)
+    console.log(programId)
+    const {comment} = req.body
+    console.log(comment)
+    const newComment = Comment.build({
+        userId,
+        programId,
+        comment
+    })
+    console.log(newComment)
+    newComment.save()
+    const program = await Program.findByPk(programId);
+    console.log(program)
+    const comments = await Comment.findAll()
+    console.log(comments)
+    res.render('program-main', { title: 'Program', program, comments });
+}))
+
 
 module.exports = router;
