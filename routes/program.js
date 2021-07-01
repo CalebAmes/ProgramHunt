@@ -89,24 +89,21 @@ router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     res.redirect('/')
 }));
 
-router.post('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
+router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
     const userId = req.session.auth.userId
-    console.log(userId)
     const programId = parseInt(req.params.id, 10)
-    console.log(programId)
     const {comment} = req.body
-    console.log(comment)
     const newComment = Comment.build({
         userId,
         programId,
         comment
     })
-    console.log(newComment)
     newComment.save()
     const program = await Program.findByPk(programId);
+    const comments = await Comment.findAll({
+        
+    })
     console.log(program)
-    const comments = await Comment.findAll()
-    console.log(comments)
     res.render('program-main', { title: 'Program', program, comments });
 }))
 
