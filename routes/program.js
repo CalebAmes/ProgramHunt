@@ -101,10 +101,15 @@ router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
     newComment.save()
     const program = await Program.findByPk(programId);
     const comments = await Comment.findAll({
-        
+        order: [['createdAt', 'DESC']],
+        where: {
+            "programId" : programId
+        }
     })
-    console.log(program)
-    res.render('program-main', { title: 'Program', program, comments });
+    console.log("COMMENTS-------->",comments[0].comment)
+    program["comments"] = comments
+    console.log("LENGTH----->", program.comments)
+    res.render('program-main', { title: 'Program', program });
 }))
 
 

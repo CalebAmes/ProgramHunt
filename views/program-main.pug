@@ -25,8 +25,9 @@ block content
             button.comment(type='submit') Comment
         div.commentBlock
             if program.comments
-                each comment in comments
-                    div= program.comment
+                console.log(program.comments)
+                each comment in program.comments
+                    div= program[comment].comment
             else
                 div.noComments
                     div No Comments Yet! Be the first!
