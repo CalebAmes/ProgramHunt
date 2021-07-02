@@ -79,6 +79,17 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     if(req.session.auth) signedInId = req.session.auth.userId;
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
+    const comments = await Comment.findAll({
+        order: [['createdAt', 'DESC']],
+        where: {
+            "programId" : programId
+        }
+    })
+    const commentsArr = []
+    for(const comment in comments){
+        commentsArr.push(comments[comment].comment)
+    }
+    program["comments"] = commentsArr
     res.render('program-main', { title: 'Program', program, signedInId });
 }));
 
@@ -106,9 +117,11 @@ router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
             "programId" : programId
         }
     })
-    console.log("COMMENTS-------->",comments[0].comment)
-    program["comments"] = comments
-    console.log("LENGTH----->", program.comments)
+    const commentsArr = []
+    for(const comment in comments){
+        commentsArr.push(comments[comment].comment)
+    }
+    program["comments"] = commentsArr
     res.render('program-main', { title: 'Program', program });
 }))
 
