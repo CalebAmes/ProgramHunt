@@ -118,14 +118,14 @@
 .comment{
     display: block;
     flex-direction: column;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border: 1px solid black;
     padding: 5px;
     margin-top: 10px;
     border-radius: 7px;
     background-color: white;
     /* overflow: ; */
-    /* height: auto; */
+    height: auto;
     /* word-wrap: break-word;
     white-space: pre-line; */
     overflow-wrap: break-word;
@@ -140,5 +140,5 @@
 
 .commentComment{
     background-color: white;
-    height: 30px;
+    height: inherit;
 }
