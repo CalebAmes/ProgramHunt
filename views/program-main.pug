@@ -18,7 +18,7 @@ block content
         div.descDiv
 
             p.description= program.description
-        
+
             div.buttonHolder
                 if (program.userId === signedInId)
                     form.registration#deleteform(action=program.id+'/delete' method='GET')
@@ -27,15 +27,15 @@ block content
         div
             form.commentForm(action=`/program/${program.id}` method='POST')
                 //- input(type='hidden' name='_csrf' value=csrfToken)
-                input.commentInputBox(type='text' name='comment' placeholder='Type a comment')
+                input.commentInputBox(type='text' name='comment' placeholder='Add a comment..')
                 button.commentSubmit(type='submit') Comment
         div.commentBlock
-            if program.comments
-                each comment in program.comments
+            if comments
+                each comment in comments
                     div.comment
-                        div.userThumbnail
-                        div.userName
-                        div.commentComment= comment
+                        div.commentUsername=comment.User.username
+                        div.commentComment= comment.comment
+                    //- img.userThumbnail(width='20' height='20' src=`${comment.User.profilePicture}`) WIP
 
             else
                 div.noComments

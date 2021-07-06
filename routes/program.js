@@ -84,14 +84,18 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
         order: [['createdAt', 'DESC']],
         where: {
             "programId" : programId
-        }
+        },
+        include: [{
+            model: User,
+            // where: {userId: User.Id}
+        }]
     })
-    const commentsArr = []
-    for(const comment in comments){
-        commentsArr.push(comments[comment].comment)
-    }
-    program["comments"] = commentsArr
-    res.render('program-main', { title: 'Program', program, signedInId });
+    // const commentsArr = []
+    // for(const comment in comments){
+    //     commentsArr.push(comments[comment].comment)
+    // }
+    // program["comments"] = commentsArr
+    res.render('program-main', { title: 'Program', program, comments, signedInId });
 }));
 
 router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
@@ -116,14 +120,19 @@ router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
         order: [['createdAt', 'DESC']],
         where: {
             "programId" : programId
-        }
+        },
+        include: [{
+            model: User,
+            where: {id: userId}
+        }]
     })
-    const commentsArr = []
-    for(const comment in comments){
-        commentsArr.push(comments[comment].comment)
-    }
-    program["comments"] = commentsArr
-    res.render('program-main', { title: 'Program', program });
+    // const commentsArr = []
+    // for(const comment in comments){
+    //     commentsArr.push(comments[comment].comment)
+    // }
+    // program["comments"] = comments
+    console.log('PROGRAM.COMMENTS--------->', comments[0].User.username)
+    res.render('program-main', { title: 'Program', program, comments });
 }))
 
 
