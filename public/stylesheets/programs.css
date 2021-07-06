@@ -110,6 +110,8 @@
     border-radius: 7px;
     background-color: white;
     margin-top: 20px;
+    width: 400px;
+
 }
 .commentForm{
     display: block;
@@ -136,6 +138,7 @@
     background-color: white;
     box-sizing: border-box;
     padding: 3px;
+    margin-bottom: 20px;
 }
 
 .commentComment{
