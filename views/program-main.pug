@@ -18,25 +18,25 @@ block content
         div.descDiv
 
             p.description= program.description
+        
+            div.buttonHolder
+                if (program.userId === signedInId)
+                    form.registration#deleteform(action=program.id+'/delete' method='GET')
+                        button.signup#delete(class='logout') Delete
     div.commentHolder
-        form(action=`/program/${program.id}` method='POST')
-            //- input(type='hidden' name='_csrf' value=csrfToken)
-            input(type='text' name='comment' placeholder='Type a comment')
-            button.comment(type='submit') Comment
+        div
+            form.commentForm(action=`/program/${program.id}` method='POST')
+                //- input(type='hidden' name='_csrf' value=csrfToken)
+                input.commentInputBox(type='text' name='comment' placeholder='Type a comment')
+                button.commentSubmit(type='submit') Comment
         div.commentBlock
             if program.comments
                 each comment in program.comments
-                    div.comment= comment
+                    div.comment
+                        div.userThumbnail
+                        div.userName
+                        div.commentComment= comment
+
             else
                 div.noComments
                     div No Comments Yet! Be the first!
-
-
-
-
-
-    div.buttonholderHolder
-        div.buttonHolder
-            if (program.userId === signedInId)
-                form.registration#deleteform(action=program.id+'/delete' method='GET')
-                    button.signup#delete(class='logout') Delete

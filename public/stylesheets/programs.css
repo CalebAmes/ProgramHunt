@@ -53,15 +53,20 @@
 }
 
 .commentHolder {
-    /* display: flex; */
-    /* justify-content: center; */
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
     margin-top: 20px;
+    width: 100px;
+    margin-left: 49%;
 }
 
 .commentblock {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
     text-align: center;
+    width: 100px;
 }
 
 .buttonholderHolder {
@@ -73,6 +78,12 @@
     margin-bottom: 5%;
 }
 
+.buttonHolder{
+    background-color: white;
+}
+#deleteform{
+    background-color: white;
+}
 .thumbnail{
     width: 100px;
     height: 100px;
@@ -90,11 +101,29 @@
 .noComments{
     margin-top: 20px;
 }
+.commentInputBox{
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: white;
+}
+.commentForm{
+    display: flex;
 
+}
 .comment{
     box-sizing: border-box;
     border: 1px solid black;
-
     padding: 5px;
-    /* margin: 5px; */
+    margin-top: 10px;
+    border-radius: 7px;
+    background-color: white;
+}
+.commentSubmit{
+    margin-top: 2px;
+    background-color: white;
+}
+
+.commentComment{
+    background-color: white;
 }

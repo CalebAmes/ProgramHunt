@@ -77,6 +77,7 @@ router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) =>
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     let signedInId = 0;
     if(req.session.auth) signedInId = req.session.auth.userId;
+    if(!req.session.auth) res.redirect('/login')
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
     const comments = await Comment.findAll({
