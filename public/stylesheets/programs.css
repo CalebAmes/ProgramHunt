@@ -70,6 +70,8 @@
 .commentUsername{
     background-color: white;
     margin-bottom: 2px;
+    border-bottom: 1px solid gray;
+    /* width: inherit; */
 }
 
 .buttonholderHolder {
