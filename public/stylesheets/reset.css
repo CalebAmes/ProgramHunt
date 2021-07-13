@@ -113,21 +113,3 @@ nav > ul:after{
   content: '';
   clear: both;
 } */
-ul ul{
-  position: absolute;
-  visibility: hidden;
-}
-
-ul li:hover > ul{
-  visibility: visible;
-}
-
-ul ul li{
-  position: relative;
-}
-
-ul ul ul{
-  position: absolute;
-  top: 0;
-  left: 100%;
-}

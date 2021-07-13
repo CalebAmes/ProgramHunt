@@ -24,7 +24,6 @@ const postValidators = [
 ]
 
 router.get('/', csrfProtection, asyncHandler(async(req, res) => {
-    console.log(req.session.auth)
     if(req.session.auth){
     const program = Program.build();
      res.render('program-post', {
