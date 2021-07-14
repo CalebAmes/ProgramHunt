@@ -98,3 +98,29 @@ form{
     background: #0077b6;
     color: #000000;
 }
+
+/*Styling for Dev Contacts*/
+
+.contactsContainer{
+    margin-top: 30px;
+    /* align-items: center;
+    text-align: center; */
+}
+
+.person{
+    margin-bottom: 15px;
+    /* margin-left: 33%; */
+    text-align: center;
+    /* align-items: center; */
+}
+.name{
+    color: black;
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+}

@@ -1,37 +1,42 @@
 extends layout.pug
 
 include utils.pug
-  ul
-      li
-      a(href='') Caleb Ames
-        ul
-          li
-            a(href='') Github
-          li
-            a(href='') LinkedIn
-          li
-            a(href='') Portfolio
-      li
-        a(href='') Keith
-          li
-            a(href='') Github
-          li
-            a(href='') LinkedIn
-          li
-            a(href='') Portfolio
-      li
-        a(href='') Emad
-          li
-            a(href='') Github
-          li
-            a(href='') LinkedIn
-          li
-            a(href='') Portfolio
-      li
-        a(href='') Tyler Ruby
-          li
-            a(href='') Github
-          li
-            a(href='') LinkedIn
-          li
-            a(href='') Portfolio
+block content
+  div
+    ul.contactsContainer
+        li.person
+          div.name Caleb Ames
+          ul
+            li.link
+              a(href='') Github
+            li.link
+              a(href='') LinkedIn
+            li.link
+              a(href='') Portfolio
+        li.person
+          div.name Keith
+          ul
+            li.link
+              a(href='') Github
+            li.link
+              a(href='') LinkedIn
+            li.link
+              a(href='') Portfolio
+        li.person
+          div.name Emad
+          ul
+            li.link
+              a(href='') Github
+            li.link
+              a(href='') LinkedIn
+            li.link
+              a(href='') Portfolio
+        li.person
+          div.name Tyler Ruby
+          ul
+            li.link
+              a(href='') Github
+            li.link
+              a(href='') LinkedIn
+            li.link
+              a(href='') Portfolio
