@@ -55,9 +55,10 @@
     /* display: flex;
     justify-content: center; */
     text-align: center;
-    margin-top: 20px;
-    width: 450px;
+    margin-top: 40px;
+    width: 650px;
     margin: auto;
+    /* border: 1px solid black; */
 }
 
 .commentblock {
