@@ -35,6 +35,7 @@ block content
                             img.commentThumbnail(src=`https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`)
                             div.commentInfo
                                 div.commentUsername=comment.User.username.toUpperCase()
+                                div.commentTime=comment.createdAt
                                 div.commentComment= comment.comment
                 else
                     div.noComments
