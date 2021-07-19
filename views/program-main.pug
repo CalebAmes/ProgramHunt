@@ -23,20 +23,19 @@ block content
                 if (program.userId === signedInId)
                     form.registration#deleteform(action=program.id+'/delete' method='GET')
                         button.signup#delete(class='logout') Delete
-    div.commentHolder
-        div
-            form.commentForm(action=`/program/${program.id}` method='POST')
-                //- input(type='hidden' name='_csrf' value=csrfToken)
-                input.commentInputBox(type='text' name='comment' placeholder='Add a comment..')
-                button.commentSubmit(type='submit') Comment
-        div.commentBlock
-            if comments
-                each comment in comments
-                    div.comment
-                        div.commentUsername=comment.User.username
-                        div.commentComment= comment.comment
-                    //- img.userThumbnail(width='20' height='20' src=`${comment.User.profilePicture}`) WIP
-
-            else
-                div.noComments
-                    div No Comments Yet! Be the first!
+            div.commentHolder
+                form.commentForm(action=`/program/${program.id}` method='POST')
+                    //- input(type='hidden' name='_csrf' value=csrfToken)
+                    input.commentInputBox(type='text' name='comment' placeholder='Add a comment..')
+                    button.commentSubmit(type='submit') Comment
+            div.commentBlock
+                if comments
+                    each comment in comments
+                        div.comment
+                            img.commentThumbnail(src=`https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`)
+                            div.commentInfo
+                                div.commentUsername=comment.User.username.toUpperCase()
+                                div.commentComment= comment.comment
+                else
+                    div.noComments
+                        div No Comments Yet! Be the first!
