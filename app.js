@@ -14,8 +14,8 @@ const programRouter = require('./routes/program')
 const profileRouter = require('./routes/profile')
 const contactsRouter = require('./routes/contacts')
 const { environment, sessionSecret } = require('./config');
-const { authUser } = require('./routes/utils')
-
+const { authUser } = require('./routes/utils');
+// const moment = require('moment');
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.locals.moment = require('moment');
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 

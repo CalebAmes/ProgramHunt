@@ -63,11 +63,12 @@
     justify-content: flex-start;
     background-color: white;
     color: black;
-    font-weight: 600;
+    font-weight: 700;
     grid-area: Name;
     background-color: lightgray;
     padding-left: 5px;
     padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .buttonholderHolder {
@@ -150,6 +151,7 @@
     grid-area: "Comment";
     word-wrap: break-word;
     text-align:start;
+    font-weight: 600;
 }
 
 .commentThumbnail{
@@ -172,4 +174,14 @@
     color: black;
     box-shadow: 0 0 5px gray;
     word-wrap: break-word;
+}
+
+.commentTime{
+    position: relative;
+    left: 16rem;
+    width: 112px;
+    background-color: lightgray;
+    grid-area: Name;
+    font-weight: 600;
+
 }
