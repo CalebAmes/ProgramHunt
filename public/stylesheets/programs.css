@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: center;
+    margin-top:50px;
 }
 
 .thumbnailDiv {
@@ -10,10 +11,6 @@
 .name {
     display: flex;
     margin-top: 50px;
-}
-
-.bio {
-
 }
 
 .contentContainer {
@@ -53,34 +50,21 @@
 }
 
 .commentHolder {
-    /* display: flex;
-    justify-content: center; */
-    /* text-align: center; */
     margin-top: 40px;
-    /* width: 650px; */
-    /* margin: auto; */
     background-color: white;
-    /* border: 1px solid black; */
 }
 
 .commentblock {
-    /* display: flex; */
-    /* justify-content: center; */
     margin-top: 20px;
-    /* text-align: center; */
-    /* width: 450px; */
     background-color: white;
 }
 .commentUsername{
     display: flex;
     justify-content: flex-start;
     background-color: white;
-    /* margin-bottom: 2px; */
     color: black;
     font-weight: 600;
     grid-area: Name;
-    /* border-bottom: 1px solid gray; */
-    /* width: inherit; */
     background-color: lightgray;
     padding-left: 5px;
     padding-top: 5px;
@@ -107,14 +91,8 @@
     display: flex;
     justify-content:center;
     background-color: white;
-    /* margin-bottom: 50px; */
-    /* border: 3px solid white; */
 }
 
-/* .thumbnailDiv {
-    width: 100px;
-    height: 100px;
-} */
 
 .noComments{
     margin-top: 20px;
@@ -134,7 +112,6 @@
     display: block;
     background-color: white;
     margin-top: 50px;
-    /* width: 300px; */
 }
 .comment{
     display: grid;
@@ -170,11 +147,8 @@
     padding-right: 5px;
     height:auto;
     flex-wrap: wrap;
-    /* height: inherit; */
-    /* border-bottom: gray solid 1px; */
     grid-area: "Comment";
     word-wrap: break-word;
-    /* overflow: hidden; */
     text-align:start;
 }
 
@@ -187,7 +161,6 @@
     border-radius: 50%;
     grid-area: thumbnail;
     background-color: white;
-    /* padding-right: 10px; */
 }
 
 .commentInfo{
@@ -195,7 +168,6 @@
     background-color: lightgray;
     height: auto;
     width: 430px;
-    /* margin-top: 30px; */
     margin-left: 10px;
     color: black;
     box-shadow: 0 0 5px gray;
