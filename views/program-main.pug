@@ -37,6 +37,9 @@ block content
                                 div.commentUsername=comment.User.username.toUpperCase()
                                     div.commentTime=moment(comment.createdAt).fromNow()
                                 div.commentComment= comment.comment
+                                button#reply() Reply
+                                    div#replyInputField
+                                        input.replyInputBox(type='text' name='reply' placeholder='Reply...' hidden)
                 else
                     div.noComments
                         div No Comments Yet! Be the first!

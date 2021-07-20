@@ -185,3 +185,19 @@
     font-weight: 600;
 
 }
+#reply{
+    position: relative;
+    left: 11rem;
+    bottom: 2px;
+    background-color: lightgray;
+    width: 50px;
+    height: 18px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+}
+
+#replyInputField{
+
+}
