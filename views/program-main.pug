@@ -1,5 +1,6 @@
 extends layout
-
+append head
+  script(src='/javascripts/reply.js')
 block content
     div.header
         div.thumbnailDiv
@@ -38,8 +39,10 @@ block content
                                     div.commentTime=moment(comment.createdAt).fromNow()
                                 div.commentComment= comment.comment
                                 button#reply() Reply
-                                    div#replyInputField
-                                        input.replyInputBox(type='text' name='reply' placeholder='Reply...' hidden)
+                        if visibility
+                            div#replyInputField
+                                input.replyInputBox(type='text' name='reply' placeholder='Reply...')
+                        
                 else
                     div.noComments
                         div No Comments Yet! Be the first!

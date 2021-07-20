@@ -1,10 +1,12 @@
 window.addEventListener("load", (event)=>{
-  
+  let visibility = false
   const reply = document.getElementById('reply')
     reply.addEventListener('click', () => {
-      console.log('YOU CLICKED ME!!!!')
-     document.getElementById('replyInputField').removeAttribute('hidden')
-
+      if (visibility === false){
+        visibility= true
+      }else{
+        visibility=false
+      }
   })
 
 })
