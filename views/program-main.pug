@@ -40,9 +40,9 @@ block content
                                 div.commentComment= comment.comment
                                 button#reply() Reply
                         if visibility
-                            div#replyInputField
-                                input.replyInputBox(type='text' name='reply' placeholder='Reply...')
-                        
+                            div#replyInputBox(hidden)
+                                input(type='text' name='reply' placeholder='Reply...')
+
                 else
                     div.noComments
                         div No Comments Yet! Be the first!
