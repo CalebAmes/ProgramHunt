@@ -4,22 +4,23 @@ const { Program } = require('../../db/models');
 
 const tyler = User.findOne({
    where: {
-     username: "Tyler"
+     username: 'Tyler'
    }
 })
+console.log(tyler)
 const keith = User.findOne({
   where: {
-    username: "Keith"
+    username: 'Keith'
   }
 })
 const emad = User.findOne({
   where: {
-   username: "Emad"
+   username: 'Emad'
   }
 })
 const caleb = User.findOne({
   where: {
-    username: "Caleb"
+    username: 'Caleb'
   }
 })
 
