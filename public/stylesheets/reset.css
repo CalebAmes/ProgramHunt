@@ -83,3 +83,33 @@
     /* margin-top: -120px; */
     border-radius: 100px;
 }
+
+
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100px;
+    padding: 10px 20px;
+}
+
+li a:hover{
+    background: #000;
+    color: #FFF;
+}
+
+/* nav > ul > li{
+  float: left;
+} */
+/*
+nav > ul:after{
+  display: block;
+  content: '';
+  clear: both;
+} */

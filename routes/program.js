@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, Program } = require('../db/models');
+const { User, Program, Comment } = require('../db/models');
 const {asyncHandler, csrfProtection} = require('./utils')
 const { check, validationResult } = require('express-validator')
 
@@ -24,7 +24,6 @@ const postValidators = [
 ]
 
 router.get('/', csrfProtection, asyncHandler(async(req, res) => {
-    console.log(req.session.auth)
     if(req.session.auth){
     const program = Program.build();
      res.render('program-post', {
@@ -77,9 +76,25 @@ router.post('/', csrfProtection, postValidators, asyncHandler(async(req, res) =>
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     let signedInId = 0;
     if(req.session.auth) signedInId = req.session.auth.userId;
+    if(!req.session.auth) res.redirect('/login')
     const programId = parseInt(req.params.id, 10);
     const program = await Program.findByPk(programId);
-    res.render('program-main', { title: 'Program', program, signedInId });
+    const comments = await Comment.findAll({
+        order: [['createdAt', 'DESC']],
+        where: {
+            "programId" : programId
+        },
+        include: [{
+            model: User,
+            // where: {userId: User.Id}
+        }]
+    })
+    // const commentsArr = []
+    // for(const comment in comments){
+    //     commentsArr.push(comments[comment].comment)
+    // }
+    // program["comments"] = commentsArr
+    res.render('program-main', { title: 'Program', program, comments, signedInId });
 }));
 
 router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
@@ -88,5 +103,36 @@ router.get('/:id(\\d+/delete)', asyncHandler(async(req, res) => {
     await program.destroy();
     res.redirect('/')
 }));
+
+router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
+    const userId = req.session.auth.userId
+    const programId = parseInt(req.params.id, 10)
+    const {comment} = req.body
+    const newComment = Comment.build({
+        userId,
+        programId,
+        comment
+    })
+    newComment.save()
+    const program = await Program.findByPk(programId);
+    const comments = await Comment.findAll({
+        order: [['createdAt', 'DESC']],
+        where: {
+            "programId" : programId
+        },
+        include: [{
+            model: User,
+            where: {id: userId}
+        }]
+    })
+    // const commentsArr = []
+    // for(const comment in comments){
+    //     commentsArr.push(comments[comment].comment)
+    // }
+    // program["comments"] = comments
+    console.log('PROGRAM.COMMENTS--------->', comments[0].User.username)
+    res.render('program-main', { title: 'Program', program, comments });
+}))
+
 
 module.exports = router;

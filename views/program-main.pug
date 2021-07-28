@@ -1,5 +1,6 @@
 extends layout
-
+append head
+  script(src='/javascripts/reply.js')
 block content
     div.header
         div.thumbnailDiv
@@ -18,20 +19,30 @@ block content
         div.descDiv
 
             p.description= program.description
-    div.commentHolder
-        div.commentBlock
-            if program.comments
-                each comment in comments
-                    div= program.comment
-            else
-                div.noComments
 
+            div.buttonHolder
+                if (program.userId === signedInId)
+                    form.registration#deleteform(action=program.id+'/delete' method='GET')
+                        button.signup#delete(class='logout') Delete
+            div.commentHolder
+                form.commentForm(action=`/program/${program.id}` method='POST')
+                    //- input(type='hidden' name='_csrf' value=csrfToken)
+                    input.commentInputBox(type='text' name='comment' placeholder='Add a comment..')
+                    button.commentSubmit(type='submit') Comment
+            div.commentBlock
+                if comments
+                    each comment in comments
+                        div.comment
+                            img.commentThumbnail(src=`https://images.pexels.com/photos/1036371/pexels-photo-1036371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`)
+                            div.commentInfo
+                                div.commentUsername=comment.User.username.toUpperCase()
+                                    div.commentTime=moment(comment.createdAt).fromNow()
+                                div.commentComment= comment.comment
+                        //-         button#reply() Reply
+                        //- if visibility
+                        //-     div#replyInputBox(hidden)
+                        //-         input(type='text' name='reply' placeholder='Reply...')
 
-
-
-
-    div.buttonholderHolder
-        div.buttonHolder
-            if (program.userId === signedInId)
-                form.registration#deleteform(action=program.id+'/delete' method='GET')
-                    button.signup#delete(class='logout') Delete
+                else
+                    div.noComments
+                        div No Comments Yet! Be the first!

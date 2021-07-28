@@ -98,3 +98,44 @@ form{
     background: #0077b6;
     color: #000000;
 }
+
+/*Styling for Dev Contacts*/
+
+.contactsContainer{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* align-items: center;
+    text-align: center; */
+}
+
+.person{
+    margin-bottom: 15px;
+    /* margin-left: 33%; */
+    /* text-align: center; */
+    /* align-items: center; */
+}
+.name{
+    color: black;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 10px;
+
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link{
+    color: grey;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+}

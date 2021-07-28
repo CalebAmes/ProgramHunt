@@ -12,9 +12,10 @@ const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const programRouter = require('./routes/program')
 const profileRouter = require('./routes/profile')
+const contactsRouter = require('./routes/contacts')
 const { environment, sessionSecret } = require('./config');
-const { authUser } = require('./routes/utils')
-
+const { authUser } = require('./routes/utils');
+// const moment = require('moment');
 
 const app = express();
 
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.locals.moment = require('moment');
 // set up session middleware
 const store = new SequelizeStore({ db: sequelize });
 
@@ -49,6 +50,7 @@ app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/users', usersRouter);
 app.use('/program', programRouter);
+app.use('/contacts', contactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
